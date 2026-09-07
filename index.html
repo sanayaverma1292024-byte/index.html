@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sanaya Verma | Portfolio</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f8f9fa;
+    color: #202124;
+}
+
+/* TOP BAR */
+
+.topbar {
+    height: 64px;
+    background: white;
+    border-bottom: 1px solid #dadce0;
+    display: flex;
+    align-items: center;
+    padding: 0 18px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.menu {
+    font-size: 28px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.search {
+    margin-left: auto;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* SIDE MENU */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -290px;
+    width: 290px;
+    height: 100%;
+    background: white;
+    box-shadow: 3px 0 15px rgba(0,0,0,0.15);
+    padding: 25px 15px;
+    transition: 0.3s;
+    z-index: 200;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar h2 {
+    margin-bottom: 25px;
+}
+
+.sidebar button {
+    display: block;
+    width: 100%;
+    padding: 14px 18px;
+    margin: 4px 0;
+    border: none;
+    background: transparent;
+    text-align: left;
+    border-radius: 0 25px 25px 0;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.sidebar button:hover {
+    background: #e8f0fe;
+    color: #1967d2;
+}
+
+.close {
+    position: absolute;
+    right: 18px;
+    top: 15px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* HOME HERO */
+
+.hero {
+    height: 430px;
+    background:
+        linear-gradient(135deg, #18384f, #31758a);
+    color: white;
+    display: flex;
+    align-items: flex-end;
+    padding: 60px 8%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero:before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transform: rotate(35deg);
+    right: -150px;
+    top: -250px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero small {
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    font-size: 80px;
+    margin: 15px 0;
+}
+
+.hero p {
+    font-size: 20px;
+    max-width: 700px;
+    line-height: 1.6;
+}
+
+/* GENERAL CONTENT */
+
+.container {
+    max-width: 1050px;
+    margin: auto;
+    padding: 45px 25px;
+}
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    align-items: center;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border: 1px solid #dadce0;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.profile {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    display: block;
+    margin: auto;
+}
+
+/* SUBJECT HEADER */
+
+.subject-header {
+    height: 250px;
+    background: linear-gradient(135deg, #174ea6, #4285f4);
+    color: white;
+    display: flex;
+    align-items: flex-end;
+    padding: 35px 8%;
+}
+
+.subject-header h1 {
+    font-size: 65px;
+}
+
+/* SUBJECT CONTENT */
+
+.subject-content {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px 20px 70px;
+}
+
+.activity {
+    background: white;
+    border: 1px solid #dadce0;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.activity img
+    width: 100%;
+    max-height: 700px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.description {
+    margin-top: 20px;
+    background: white;
+    border: 1px solid #dadce0;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.description h2 {
+    margin-bottom: 12px;
+}
+
+.description p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: white;
+    border-top: 1px solid #dadce0;
+    color: #5f6368;
+}
+
+/* MOBILE */
+
+@media(max-width:700px) {
+
+    .hero {
+        height: 400px;
+        padding: 40px 25px;
+    }
+
+    .hero h1 {
+        font-size: 60px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .subject-header {
+        height: 190px;
+        padding: 25px;
+    }
+
+    .subject-header h1 {
+        font-size: 50px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- SIDE NAVIGATION -->
+
+<div class="sidebar" id="sidebar">
+
+    <span class="close" onclick="closeMenu()">×</span>
+
+    <h2>Sanaya Verma</h2>
+
+    <button onclick="showPage('home')">Home</button>
+
+    <button onclick="showPage('about')">About Me</button>
+
+    <br>
+
+    <button onclick="showPage('marathi')">Marathi</button>
+
+    <button onclick="showPage('hindi')">Hindi</button>
+
+    <button onclick="showPage('english')">English</button>
+
+    <button onclick="showPage('maths')">Maths</button>
+
+    <button onclick="showPage('science')">Science</button>
+
+    <button onclick="showPage('sst')">SST</button>
+
+</div>
+
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+
+    <div class="menu" onclick="openMenu()">☰</div>
+
+    <div class="logo-text">
+        Sanaya Verma
+    </div>
+
+    <div class="search">
+        🔍
+    </div>
+
+</div>
+
+
+<!-- WEBSITE -->
+
+<div id="website"></div>
+
+
+<footer>
+
+    Sanaya Verma • School Portfolio
+
+</footer>
+
+
+<script>
+
+/* OPEN MENU */
+
+function openMenu() {
+
+    document.getElementById("sidebar")
+    .classList.add("open");
+
+}
+
+
+/* CLOSE MENU */
+
+function closeMenu() {
+
+    document.getElementById("sidebar")
+    .classList.remove("open");
+
+}
+
+
+/* PAGE SYSTEM */
+
+function showPage(page) {
+
+    closeMenu();
+
+    let website =
+    document.getElementById("website");
+
+
+    /* HOME */
+
+    if(page === "home") {
+
+        website.innerHTML = `
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <small>SCHOOL PORTFOLIO</small>
+
+                <h1>Home</h1>
+
+                <p>
+                Hello, my name is <b>Sanaya Verma</b>.
+                Welcome to my portfolio, where I have
+                collected my school activities, projects,
+                creative work and learning experiences.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="container">
+
+            <div class="about">
+
+                <div class="card">
+
+                    <h2>About Me</h2>
+
+                    <p>
+                    I am a curious learner who loves
+                    discovering new things, exploring
+                    new ideas and learning something
+                    interesting from every subject.
+                    I enjoy creative activities and
+                    like presenting my work in my own way.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <img
+                    src="home.jpeg"
+                    class="profile"
+                    alt="Sanaya Verma">
+
+                </div>
+
+            </div>
+
+        </section>
+
+        `;
+
+    }
+
+
+    /* ABOUT */
+
+    else if(page === "about") {
+
+        website.innerHTML = `
+
+        <section class="subject-header">
+
+            <h1>About Me</h1>
+
+        </section>
+
+
+        <section class="subject-content">
+
+            <div class="description">
+
+                <h2>My Learning Journey</h2>
+
+                <p>
+                For me, learning is more than reading
+                textbooks. Asking questions, observing
+                things, trying activities and expressing
+                ideas creatively are all part of my
+                learning journey.
+                </p>
+
+                <br>
+
+                <p>
+                I enjoy discovering new ideas,
+                creative school activities, projects,
+                nature, science and different subjects.
+                </p>
+
+            </div>
+
+        </section>
+
+        `;
+
+    }
+
+
+    /* MARATHI */
+
+    else if(page === "marathi") {
+
+        website.innerHTML = `
+
+        <section class="subject-header">
+
+            <h1>Marathi</h1>
+
+        </section>
+
+
+        <section class="subject-content">
+
+            <div class="activity">
+
+                <img
+                src="marathi.jpeg"
+                alt="Mahanand Doodh Dairy Logo">
+
+            </div>
+
+
+            <div class="description">
+
+                <h2>Mahanand Doodh Dairy — Logo Project</h2>
+
+                <p>
+                This school project presents an original
+                circular logo concept for Mahanand Doodh
+                Dairy. The design uses a simple dairy and
+                nature theme to represent freshness,
+                purity, nutrition and trust.
+                </p>
+
+            </div>
+
+        </section>
+
+        `;
+
+    }
+
+
+    /* HINDI */
+
+    else if(page === "hindi") {
+
+        website.innerHTML = `
+
+        <section class="subject-header">
+
+            <h1>Hindi</h1>
+
+        </section>
+
+
+        <section class="subject-content">
+
+            <div class="activity">
+
+                <img
+                src="hindi.jpeg"
+                alt="Hindi Nature Poem">
+
+            </div>
+
+
+            <div class="description">
+
+                <h2>Nature Poem</h2>
+
+                <p>
+                A creative Hindi poem celebrating
+                the beauty of nature, including the sky,
+                mountains, rivers, trees, flowers,
+                rain, moon and stars.
+                </p>
+
+            </div>
+
+        </section>
+
+        `;
+
+    }
+
+
+    /* ENGLISH */
+
+    else if(page === "english") {
+
+        website.innerHTML = `
+
+        <section class="subject-header">
+
+            <h1>English</h1>
+
+        </section>
+
+
+        <section class="subject-content">
+
+            <div class="activity">
+
+                <img
+                src="english.jpeg"
+                alt="English Nature Poem">
+
+            </div>
+
+
+            <div class="description">
+
+                <h2>Nature Poem</h2>
+
+                <p>
+                An original creative poem inspired
+                by the beauty of nature and living
+                creatures. It expresses appreciation
+                for the natural world and encourages
+                us to value and protect it.
+                </p>
+
+            </div>
+
+        </section>
+
+        `;
+
+    }
+
+
+    /* MATHS */
+
+    else if(page === "maths") {
+
+        website.innerHTML = `
+
+        <section class="subject-header">
+
+            <h1>Maths</h1>
+
+        </section>
+
+
+        <section class="subject-content">
+
+            <div class="activity">
+
+                <img
+                src="maths.jpeg"
+                alt="Maths Clock Activity">
+
+            </div>
+
+
+            <div class="description">
+
+                <h2>Maths Clock Activity</h2>
+
+                <p>
+                A hands-on activity using a handmade
+                clock to understand time, hours and
+                minutes in a simple and enjoyable way.
+                </p>
+
+            </div>
+
+        </section>
+
+        `;
+
+    }
+
+
+    /* SCIENCE */
+
+    else if(page === "science") {
+
+        website.innerHTML = `
+
+        <section class="subject-header">
+
+            <h1>Science</h1>
+
+        </section>
+
+
+        <section class="subject-content">
+
+            <div class="activity">
+
+                <img
+                src="science.jpeg"
+                alt="Freshwater Ecosystem Activity">
+
+            </div>
+
+
+            <div class="description">
+
+                <h2>Class Group Activity</h2>
+
+                <p>
+                A class group activity about the
+                freshwater ecosystem and how living
+                and non-living components work together
+                in harmony in nature.
+                </p>
+
+            </div>
+
+        </section>
+
+        `;
+
+    }
+
+
+    /* SST */
+
+    else if(page === "sst") {
+
+        website.innerHTML = `
+
+        <section class="subject-header">
+
+            <h1>SST</h1>
+
+        </section>
+
+
+        <section class="subject-content">
+
+            <div class="activity">
+
+                <img
+                src="sst.jpeg"
+                alt="Vaishali Bihar">
+
+            </div>
+
+
+            <div class="description">
+
+                <h2>Vaishali, Bihar</h2>
+
+                <p>
+                This historical site is located in
+                Vaishali, Bihar, an important ancient
+                centre associated with Buddhism and
+                the Licchavi republic. The Kolhua
+                archaeological site is known for the
+                famous Ashokan Pillar and ancient
+                stupa remains. Vaishali is also
+                associated with the Buddha, who visited
+                the region several times and delivered
+                his last sermon here. The site reflects
+                the rich historical and cultural heritage
+                of Bihar.
+                </p>
+
+            </div>
+
+        </section>
+
+        `;
+
+    }
+
+}
+
+
+/* LOAD HOME FIRST */
+
+showPage("home");
+
+</script>
+
+</body>
+</html>
